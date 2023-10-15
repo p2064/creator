@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package="../proto";
+
+message CreateEventRequest {
+  string time = 1;
+  string place = 2;
+  int64 maxPlayers = 4;
+}
+
+message CreateEventResponse {
+  int64 status = 1;
+  string error = 2;
+  int64 id = 3;
+}
+
+service CreatorService {
+  rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse) {}
+}
